@@ -1,0 +1,106 @@
+{
+   "base_url" : "http://localhost:9200/",
+   "version" : "0.19.10",
+   "methods" : {
+      "update_profile" : {
+         "path" : "/user/show/:username",
+         "method" : "POST",
+         "form-data" : {
+            "values[name]"       : ":name",
+            "values[email]"      : ":email",
+            "values[blog]"       : ":blog",
+            "values[company]"    : ":company",
+            "values[location]"   : ":location"
+         },
+         "required_params" : [
+            "username"
+         ],
+         "optional_params" : [
+            "name",
+            "email",
+            "blog",
+            "company",
+            "location"
+         ],
+         "authentication" : true
+      },
+      "welcome" : {
+         "path" : "/",
+         "method" : "GET"
+      },
+      "create_index" : {
+          "path" : "/:index",
+          "method" : "PUT",
+          "required_params" : [
+            "index"
+          ]
+      },
+      "delete_index" : {
+          "path" : "/:index",
+          "method" : "DELETE",
+          "required_params" : [
+             "index"
+          ]
+       },
+       "put_mapping" : {
+           "path" : "/:index/:type/_mapping",
+           "method" : "PUT",
+           "required_params" : [
+             "index",
+             "type"
+           ]
+        },
+        "get_mapping" : {
+            "path" : "/:index/:type/_mapping",
+            "method" : "GET",
+            "required_params" : [
+              "index"
+            ],
+            "optional_params" : [
+              "type"
+            ]
+        },
+        "delete_mapping" : {
+            "path" : "/:index/:type",
+            "method" : "DELETE",
+            "required_params" : [
+               "index",
+               "type"
+            ]
+         },
+        "index" : {
+            "path" : "/:index/:type/:id",
+            "method" : "POST",
+            "required_params" : [
+              "index",
+              "type"
+            ],
+            "optional_params" : [
+              "id"
+            ]
+        },
+        "search" : {
+            "path" : "/:index/:type/_search",
+            "method" : "POST",
+            "optional_params" : [
+               "index",
+               "type"
+            ]
+        },
+        "delete" : {
+            "path" : "/:index/:type/:id",
+            "method" : "DELETE",
+            "required_params" : [
+               "index",
+               "type",
+               "id"
+            ]
+         }
+   },
+   "expected_status" : [ 200 ],
+   "name" : "Elasticsearch",
+   "authority" : "http://elasticsearch.org/SPORE",
+   "meta" : {
+      "documentation" : "http://www.elasticsearch.org/"
+   }
+}
