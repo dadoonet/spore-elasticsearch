@@ -339,5 +339,24 @@ public class ElasticsearchTest {
         assertNotNull(result.body.get("took"));    
     }
 
-    
+    @Test
+    public void test_status() throws SporeException, IOException {
+    	// TODO : change that : We wait for 500 ms
+    	try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+		}
+
+    	// We inject some beans
+    	test_index();
+    	
+    	node.client().admin().indices().prepareRefresh(_index).execute().actionGet();
+    	SporeResult<JsonNode> result = spore.call("status", new ImmutableMap.Builder<String, String>()
+                .put("index", _index)
+                .build());
+        assertTrue(result.body.get("ok").asBoolean());
+
+        result = spore.call("status");
+        assertTrue(result.body.get("ok").asBoolean());
+    }    
 }

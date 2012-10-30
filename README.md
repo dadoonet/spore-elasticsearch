@@ -31,7 +31,7 @@ Available APIs
 | delete               |    DELETE     | /{index}/{type}/{id}                  |http://www.elasticsearch.org/guide/reference/api/delete.html                       |
 | analyze              |     GET       | /_analyze                             |http://www.elasticsearch.org/guide/reference/api/admin-indices-analyze.html        |
 | count                |     POST      | /_count                               |http://www.elasticsearch.org/guide/reference/api/count.html                        |
-|                      |               |                                       |                                                                                   |
+| status               |     GET       | /{index}/_status                      |http://www.elasticsearch.org/guide/reference/api/admin-indices-status.html         |
 |                      |               |                                       |                                                                                   |
 |                      |               |                                       |                                                                                   |
 |                      |               |                                       |                                                                                   |
@@ -51,6 +51,8 @@ grep "controller.registerHandler\(([^,]*),[^,]*" $ES_DIR -o -h -E -R --include "
 
 Here are the methods that have to be implemented in SPORE:
 
+| API Name             |    Method     |               URL                     |                                Documentation                                      | 
+|----------------------|:-------------:|---------------------------------------|-----------------------------------------------------------------------------------|
 | multi_search         |     POST      | /{index}/{type}/_msearch              |http://www.elasticsearch.org/guide/reference/api/multi-search.html                 |
 
 
@@ -133,7 +135,6 @@ GET, "/_nodes/{nodeId}/transport"
 GET, "/_nodes/{nodeId}/transport/stats"
 GET, "/_optimize"
 GET, "/_refresh"
-GET, "/_search"
 GET, "/_search/scroll"
 GET, "/_search/scroll/{scroll_id}"
 GET, "/_segments"
@@ -159,7 +160,6 @@ GET, "/{index}/_flush"
 GET, "/{index}/_mget"
 GET, "/{index}/_optimize"
 GET, "/{index}/_refresh"
-GET, "/{index}/_search"
 GET, "/{index}/_segments"
 GET, "/{index}/_settings"
 GET, "/{index}/_stats"
@@ -181,7 +181,6 @@ GET, "/{index}/_warmer/{name}"
 GET, "/{index}/{type}/_mget"
 GET, "/{index}/{type}/_msearch"
 GET, "/{index}/{type}/_percolate"
-GET, "/{index}/{type}/_search"
 GET, "/{index}/{type}/_validate/query"
 GET, "/{index}/{type}/_warmer/{name}"
 GET, "/{index}/{type}/{id}"
@@ -247,4 +246,13 @@ PUT, "/{index}/_warmer/{name}"
 PUT, "/{index}/{type}/_bulk"
 PUT, "/{index}/{type}/_warmer/{name}"
 PUT, "/{index}/{type}/{id}/_create"
+```
+
+Ignored APIs
+------------
+
+```
+GET, "/_search"
+GET, "/{index}/_search"
+GET, "/{index}/{type}/_search"
 ```

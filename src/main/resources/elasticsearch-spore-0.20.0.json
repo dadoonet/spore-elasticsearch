@@ -91,6 +91,13 @@
                "index",
                "type"
             ]
+        },
+        "status" : {
+            "path" : "/:index/_status",
+            "method" : "GET",
+            "optional_params" : [
+               "index"
+            ]
          }
    },
    "expected_status" : [ 200 ],
