@@ -8,7 +8,7 @@ Versions
 
 | spore-elasticsearch  | ElasticSearch |
 |:--------------------:|:-------------:|
-|   master (0.0.1)     |    0.20.0     |
+|   master (0.0.1)     |    0.20.0.RC1 |
 
 Build Status
 ------------

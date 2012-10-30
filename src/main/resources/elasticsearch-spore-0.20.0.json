@@ -1,29 +1,7 @@
 {
    "base_url" : "http://localhost:9200/",
-   "version" : "0.19.10",
+   "version" : "0.20.0.RC1",
    "methods" : {
-      "update_profile" : {
-         "path" : "/user/show/:username",
-         "method" : "POST",
-         "form-data" : {
-            "values[name]"       : ":name",
-            "values[email]"      : ":email",
-            "values[blog]"       : ":blog",
-            "values[company]"    : ":company",
-            "values[location]"   : ":location"
-         },
-         "required_params" : [
-            "username"
-         ],
-         "optional_params" : [
-            "name",
-            "email",
-            "blog",
-            "company",
-            "location"
-         ],
-         "authentication" : true
-      },
       "welcome" : {
          "path" : "/",
          "method" : "GET"
