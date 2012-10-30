@@ -3,8 +3,10 @@ package fr.pilato.elasticsearch.spore;
  */
 
 import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +18,7 @@ import net.linkfluence.jspore.SporeException;
 import net.linkfluence.jspore.SporeResult;
 
 import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.node.ArrayNode;
 import org.elasticsearch.common.io.FileSystemUtils;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.settings.Settings;
@@ -250,6 +253,27 @@ public class ElasticsearchTest {
                 .put("index", _index)
                 .build());
         assertTrue(result.body.get("ok").asBoolean());
+    }
+
+    @Test
+    public void test_analyze() throws SporeException, IOException {
+    	// TODO : change that : We wait for 500 ms
+    	try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+		}
+
+    	SporeResult<JsonNode> result = spore.call("analyze", "Elasticsearch is cool");
+    	Object tokens = result.body.get("tokens");
+    	
+    	assertNotNull(tokens);
+    	
+    	if (tokens instanceof ArrayNode) {
+			ArrayNode _tokens = (ArrayNode) tokens;
+	    	assertEquals(2, _tokens.size());
+		} else {
+			fail("tokens should be an array");
+		}
     }
 
     

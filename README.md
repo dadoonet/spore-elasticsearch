@@ -29,7 +29,7 @@ Available APIs
 | index                |     POST      | /{index}/{type}/{id}                  |http://www.elasticsearch.org/guide/reference/api/index_.html                       |
 | search               |     POST      | /{index}/{type}/_search               |http://www.elasticsearch.org/guide/reference/api/search/                           |
 | delete               |    DELETE     | /{index}/{type}/{id}                  |http://www.elasticsearch.org/guide/reference/api/delete.html                       |
-|                      |               |                                       |                                                                                   |
+| analyze              |     GET       | /_analyze                             |http://www.elasticsearch.org/guide/reference/api/admin-indices-analyze.html        |
 |                      |               |                                       |                                                                                   |
 |                      |               |                                       |                                                                                   |
 
@@ -58,7 +58,6 @@ DELETE, "/{index}/{type}/_mapping" SAME AS DELETE index/type ?
 DELETE, "/{index}/{type}/_query"
 DELETE, "/{index}/{type}/_warmer/{name}"
 GET, "/_aliases"
-GET, "/_analyze"
 GET, "/_cache/clear"
 GET, "/_cluster/health/{index}"
 GET, "/_cluster/nodes/{nodeId}"

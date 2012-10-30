@@ -73,6 +73,10 @@
                "type",
                "id"
             ]
+        },
+        "analyze" : {
+            "path" : "/_analyze",
+            "method" : "POST"
          }
    },
    "expected_status" : [ 200 ],
