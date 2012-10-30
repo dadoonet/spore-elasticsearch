@@ -77,6 +77,22 @@
         "analyze" : {
             "path" : "/_analyze",
             "method" : "POST"
+        },
+        "multi_search" : {
+            "path" : "/:index/:type/_msearch",
+            "method" : "POST",
+            "optional_params" : [
+               "index",
+               "type"
+            ]
+        },
+        "count" : {
+            "path" : "/:index/:type/_count",
+            "method" : "POST",
+            "optional_params" : [
+               "index",
+               "type"
+            ]
          }
    },
    "expected_status" : [ 200 ],

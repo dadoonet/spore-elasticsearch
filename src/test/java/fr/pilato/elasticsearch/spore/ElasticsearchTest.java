@@ -28,6 +28,7 @@ import org.elasticsearch.node.NodeBuilder;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.google.common.collect.ImmutableMap;
@@ -274,6 +275,64 @@ public class ElasticsearchTest {
 		} else {
 			fail("tokens should be an array");
 		}
+    }
+
+    @Test @Ignore
+    public void test_multi_search() throws SporeException, IOException {
+    	// TODO : change that : We wait for 500 ms
+    	try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+		}
+
+    	// We inject some beans
+    	test_index();
+    	
+    	node.client().admin().indices().prepareRefresh(_index).execute().actionGet();
+    	SporeResult<JsonNode> result = spore.call("multi_search", new ImmutableMap.Builder<String, String>()
+                .put("index", _index)
+                .put("type", _type)
+                .build(),
+                "{}\n{\"query\":{\"match_all\":{}}}\n");
+        assertNotNull(result.body.get("took"));
+
+        result = spore.call("multi_search", new ImmutableMap.Builder<String, String>()
+                .put("index", _index)
+                .build(),
+                "{\"query\":{\"match_all\":{}}}");
+        assertNotNull(result.body.get("took"));
+        
+        result = spore.call("multi_search", "{\"query\":{\"match_all\":{}}}");
+        assertNotNull(result.body.get("took"));    
+    }
+
+    @Test
+    public void test_count() throws SporeException, IOException {
+    	// TODO : change that : We wait for 500 ms
+    	try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+		}
+
+    	// We inject some beans
+    	test_index();
+    	
+    	node.client().admin().indices().prepareRefresh(_index).execute().actionGet();
+    	SporeResult<JsonNode> result = spore.call("count", new ImmutableMap.Builder<String, String>()
+                .put("index", _index)
+                .put("type", _type)
+                .build(),
+                "{\"match_all\":{}}");
+        assertNotNull(result.body.get("took"));
+
+        result = spore.call("count", new ImmutableMap.Builder<String, String>()
+                .put("index", _index)
+                .build(),
+                "{\"match_all\":{}}");
+        assertNotNull(result.body.get("took"));
+        
+        result = spore.call("count", "{\"match_all\":{}}");
+        assertNotNull(result.body.get("took"));    
     }
 
     

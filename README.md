@@ -30,6 +30,9 @@ Available APIs
 | search               |     POST      | /{index}/{type}/_search               |http://www.elasticsearch.org/guide/reference/api/search/                           |
 | delete               |    DELETE     | /{index}/{type}/{id}                  |http://www.elasticsearch.org/guide/reference/api/delete.html                       |
 | analyze              |     GET       | /_analyze                             |http://www.elasticsearch.org/guide/reference/api/admin-indices-analyze.html        |
+| count                |     POST      | /_count                               |http://www.elasticsearch.org/guide/reference/api/count.html                        |
+|                      |               |                                       |                                                                                   |
+|                      |               |                                       |                                                                                   |
 |                      |               |                                       |                                                                                   |
 |                      |               |                                       |                                                                                   |
 
@@ -48,6 +51,9 @@ grep "controller.registerHandler\(([^,]*),[^,]*" $ES_DIR -o -h -E -R --include "
 
 Here are the methods that have to be implemented in SPORE:
 
+| multi_search         |     POST      | /{index}/{type}/_msearch              |http://www.elasticsearch.org/guide/reference/api/multi-search.html                 |
+
+
 ```
 DELETE, "/"
 DELETE, "/_template/{name}"
@@ -64,11 +70,9 @@ GET, "/_cluster/nodes/{nodeId}"
 GET, "/_cluster/nodes/{nodeId}/hot_threads"
 GET, "/_cluster/settings"
 GET, "/_cluster/state"
-GET, "/_count"
 GET, "/_flush"
 GET, "/_mapping"
 GET, "/_mget"
-GET, "/_msearch"
 GET, "/_nodes"
 GET, "/_nodes/fs/stats"
 GET, "/_nodes/hot_threads"
@@ -153,11 +157,9 @@ GET, "/_validate/query"
 GET, "/{index}/_aliases"
 GET, "/{index}/_analyze"
 GET, "/{index}/_cache/clear"
-GET, "/{index}/_count"
 GET, "/{index}/_flush"
 GET, "/{index}/_mapping"
 GET, "/{index}/_mget"
-GET, "/{index}/_msearch"
 GET, "/{index}/_optimize"
 GET, "/{index}/_refresh"
 GET, "/{index}/_search"
@@ -179,7 +181,6 @@ GET, "/{index}/_status"
 GET, "/{index}/_validate/query"
 GET, "/{index}/_warmer"
 GET, "/{index}/_warmer/{name}"
-GET, "/{index}/{type}/_count"
 GET, "/{index}/{type}/_mapping"
 GET, "/{index}/{type}/_mget"
 GET, "/{index}/{type}/_msearch"
