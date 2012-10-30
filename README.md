@@ -32,7 +32,7 @@ Available APIs
 | analyze              |     GET       | /_analyze                             |http://www.elasticsearch.org/guide/reference/api/admin-indices-analyze.html        |
 | count                |     POST      | /_count                               |http://www.elasticsearch.org/guide/reference/api/count.html                        |
 | status               |     GET       | /{index}/_status                      |http://www.elasticsearch.org/guide/reference/api/admin-indices-status.html         |
-|                      |               |                                       |                                                                                   |
+| shutdown             |     POST      | /_cluster/nodes/{nodes}/_shutdown     |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-shutdown.html |
 |                      |               |                                       |                                                                                   |
 |                      |               |                                       |                                                                                   |
 
@@ -194,11 +194,8 @@ POST, "/_analyze"
 POST, "/_bulk"
 POST, "/_cache/clear"
 POST, "/_cluster/nodes/_restart"
-POST, "/_cluster/nodes/_shutdown"
 POST, "/_cluster/nodes/{nodeId}/_restart"
-POST, "/_cluster/nodes/{nodeId}/_shutdown"
 POST, "/_cluster/reroute"
-POST, "/_count"
 POST, "/_flush"
 POST, "/_gateway/snapshot"
 POST, "/_mget"
@@ -207,7 +204,6 @@ POST, "/_optimize"
 POST, "/_refresh"
 POST, "/_search/scroll"
 POST, "/_search/scroll/{scroll_id}"
-POST, "/_shutdown"
 POST, "/_template/{name}"
 POST, "/_validate/query"
 POST, "/{index}"   SAME AS PUT

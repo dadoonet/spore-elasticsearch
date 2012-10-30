@@ -98,6 +98,13 @@
             "optional_params" : [
                "index"
             ]
+        },
+        "shutdown" : {
+            "path" : "/_cluster/nodes/:nodes/_shutdown",
+            "method" : "POST",
+            "optional_params" : [
+               "nodes"
+            ]
          }
    },
    "expected_status" : [ 200 ],
