@@ -33,6 +33,9 @@ Available APIs
 | count                |     POST      | /_count                               |http://www.elasticsearch.org/guide/reference/api/count.html                        |
 | status               |     GET       | /{index}/_status                      |http://www.elasticsearch.org/guide/reference/api/admin-indices-status.html         |
 | shutdown             |     POST      | /_cluster/nodes/{nodes}/_shutdown     |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-shutdown.html |
+| nodes_stats          |     GET       | /_nodes/{nodeId}/stats/{stats}        |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-stats.html    |
+|                      |               |                                       |                                                                                   |
+|                      |               |                                       |                                                                                   |
 |                      |               |                                       |                                                                                   |
 |                      |               |                                       |                                                                                   |
 
@@ -73,40 +76,9 @@ GET, "/_cluster/settings"
 GET, "/_cluster/state"
 GET, "/_flush"
 GET, "/_mget"
-GET, "/_nodes"
-GET, "/_nodes/fs/stats"
-GET, "/_nodes/hot_threads"
-GET, "/_nodes/hotthreads"
-GET, "/_nodes/http"
-GET, "/_nodes/http/stats"
-GET, "/_nodes/indices/stats"
-GET, "/_nodes/jvm"
-GET, "/_nodes/jvm/stats"
-GET, "/_nodes/network"
-GET, "/_nodes/network/stats"
-GET, "/_nodes/os"
-GET, "/_nodes/os/stats"
-GET, "/_nodes/process"
-GET, "/_nodes/process/stats"
-GET, "/_nodes/settings"
-GET, "/_nodes/stats"
-GET, "/_nodes/stats/fs"
-GET, "/_nodes/stats/http"
-GET, "/_nodes/stats/indices"
-GET, "/_nodes/stats/jvm"
-GET, "/_nodes/stats/network"
-GET, "/_nodes/stats/os"
-GET, "/_nodes/stats/process"
-GET, "/_nodes/stats/thread_pool"
-GET, "/_nodes/stats/transport"
-GET, "/_nodes/thread_pool"
-GET, "/_nodes/thread_pool/stats"
-GET, "/_nodes/transport"
-GET, "/_nodes/transport/stats"
 GET, "/_nodes/{nodeId}"
 GET, "/_nodes/{nodeId}/fs/stats"
 GET, "/_nodes/{nodeId}/hot_threads"
-GET, "/_nodes/{nodeId}/hotthreads"
 GET, "/_nodes/{nodeId}/http"
 GET, "/_nodes/{nodeId}/http/stats"
 GET, "/_nodes/{nodeId}/indices/stats"

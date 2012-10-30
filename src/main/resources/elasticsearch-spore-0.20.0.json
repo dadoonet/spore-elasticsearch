@@ -105,6 +105,14 @@
             "optional_params" : [
                "nodes"
             ]
+        },
+        "nodes_stats" : {
+            "path" : "/_nodes/:nodes/stats/:stat",
+            "method" : "GET",
+            "optional_params" : [
+               "nodes",
+               "stat"
+            ]
          }
    },
    "expected_status" : [ 200 ],

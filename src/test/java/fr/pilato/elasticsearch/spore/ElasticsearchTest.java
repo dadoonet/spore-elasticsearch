@@ -373,5 +373,34 @@ public class ElasticsearchTest {
                 .build());
     }    
     
+    @Test
+    public void test_nodes_stats() throws SporeException, IOException {
+    	// TODO : change that : We wait for 500 ms
+    	try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+		}
+
+    	SporeResult<JsonNode> result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
+                .put("nodes", "_all")
+                .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+
+        result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
+                .put("nodes", "_all")
+                .put("stat", "jvm")
+                .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+
+        result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
+                .put("stat", "jvm")
+                .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+
+        result = spore.call("nodes_stats");
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+
+    }  
+    
     
 }
