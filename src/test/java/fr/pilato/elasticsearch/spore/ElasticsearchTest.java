@@ -159,6 +159,10 @@ public class ElasticsearchTest {
                 .put("index", _index)
                 .build());
         assertNotNull(result.body.get(_index));
+
+        // We want all mappings for the whole cluster
+    	result = spore.call("get_mapping");
+        assertNotNull(result.body.get(_index));
     }
 
     @Test

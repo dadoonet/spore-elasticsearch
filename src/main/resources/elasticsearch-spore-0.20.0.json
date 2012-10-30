@@ -31,10 +31,8 @@
         "get_mapping" : {
             "path" : "/:index/:type/_mapping",
             "method" : "GET",
-            "required_params" : [
-              "index"
-            ],
             "optional_params" : [
+              "index",
               "type"
             ]
         },
