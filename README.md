@@ -35,6 +35,7 @@ Available APIs
 | shutdown             |     POST      | /_cluster/nodes/{nodes}/_shutdown          |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-shutdown.html |
 | nodes_stats          |     GET       | /_nodes/{nodeId}/stats/{stats}             |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-stats.html    |
 | cluster_state        |     GET       | /_cluster/state                            |http://www.elasticsearch.org/guide/reference/api/admin-cluster-state.html          | 
+| cluster_health       |     GET       | /_cluster/health/{index}                   |http://www.elasticsearch.org/guide/reference/api/admin-cluster-health.html         |
 | cluster_settings     |     GET       | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/admin-cluster-update-settings.html|
 | put_cluster_settings |     PUT       | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/admin-cluster-update-settings.html|
 
@@ -63,9 +64,8 @@ Here are the methods that have to be implemented in SPORE:
 |                      |    DELETE     | /{index}/_warmer/{name}                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |    DELETE     | /{index}/{type}/_query                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |    DELETE     | /{index}/{type}/_warmer/{name}             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      |  /_aliases                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_aliases                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_cache/clear                              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_cluster/health/{index}                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_cluster/nodes/{nodeId}                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_cluster/nodes/{nodeId}/hot_threads       |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_flush                                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |

@@ -118,6 +118,13 @@
             "path" : "/_cluster/state",
             "method" : "GET"
         },
+        "cluster_health" : {
+            "path" : "/_cluster/health/:index",
+            "method" : "GET",
+            "optional_params" : [
+               "index"
+            ]
+        },
         "cluster_settings" : {
             "path" : "/_cluster/settings",
             "method" : "GET"
