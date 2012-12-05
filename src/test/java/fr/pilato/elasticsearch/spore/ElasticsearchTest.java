@@ -28,7 +28,6 @@ import org.elasticsearch.node.NodeBuilder;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.google.common.collect.ImmutableMap;
@@ -56,7 +55,8 @@ public class ElasticsearchTest {
 		}
 	}
 
-    @BeforeClass
+    @SuppressWarnings("unchecked")
+	@BeforeClass
     public static void setUpBeforeClass() throws Exception {
     	URL url = ElasticsearchTest.class.getResource("/elasticsearch-spore-0.20.0.json");
         File spec = new File(url.getFile());
@@ -143,11 +143,8 @@ public class ElasticsearchTest {
     public void test_get_mapping() throws SporeException, IOException {
     	// We create a doc
     	node.client().prepareIndex(_index, _type).setSource("{\"myprop\":\"value\"}").setRefresh(true).execute().actionGet();
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
+    	
+    	waitForCluster();
     	
     	// We test to get a specific mapping
     	SporeResult<JsonNode> result = spore.call("get_mapping", new ImmutableMap.Builder<String, String>()
@@ -188,12 +185,6 @@ public class ElasticsearchTest {
 
     @Test
     public void test_search() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	// We inject some beans
     	test_index();
     	
@@ -227,12 +218,6 @@ public class ElasticsearchTest {
 
     @Test
     public void test_delete_mapping() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	// We inject some beans
     	test_index();
     	
@@ -246,12 +231,6 @@ public class ElasticsearchTest {
     
     @Test
     public void test_delete_index() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	// We inject some beans
     	test_index();
     	
@@ -264,12 +243,6 @@ public class ElasticsearchTest {
 
     @Test
     public void test_delete_index_all() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	// We inject some beans
     	test_index();
     	
@@ -282,12 +255,6 @@ public class ElasticsearchTest {
 
     @Test
     public void test_analyze() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	SporeResult<JsonNode> result = spore.call("analyze", "Elasticsearch is cool");
     	Object tokens = result.body.get("tokens");
     	
@@ -302,18 +269,12 @@ public class ElasticsearchTest {
     }
 
     /**
-     * Testing multi search API. It fails as ES doesn't support _msearch API with -d option and only wants --data-binary @file
+     * Testing multi search API. But should works!
      * @throws SporeException
      * @throws IOException
      */
-    @Test @Ignore
+    @Test
     public void test_multi_search() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	// We inject some beans
     	test_index();
     	
@@ -339,12 +300,6 @@ public class ElasticsearchTest {
     // curl -XPOST http://localhost:9200/sporeidx/sporetype/_count -d '{"match_all":{}}'
     // {"count":2,"_shards":{"total":5,"successful":5,"failed":0}}
     public void test_count() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	// We inject some beans
     	test_index();
     	
@@ -369,12 +324,6 @@ public class ElasticsearchTest {
 
     @Test
     public void test_status() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	// We inject some beans
     	test_index();
     	
@@ -390,25 +339,14 @@ public class ElasticsearchTest {
     
     @Test
     public void test_shutdown() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	SporeResult<JsonNode> result = spore.call("shutdown", new ImmutableMap.Builder<String, String>()
                 .put("nodes", "nonexistingnode")
                 .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
     }    
     
     @Test
     public void test_nodes_stats() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	SporeResult<JsonNode> result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
                 .put("nodes", "_all")
                 .build());
@@ -432,24 +370,12 @@ public class ElasticsearchTest {
     
     @Test
     public void test_cluster_state() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	SporeResult<JsonNode> result = spore.call("cluster_state");
         assertNotNull(result.body.get("master_node").asText());
     }  
     
     @Test
     public void test_cluster_health() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	SporeResult<JsonNode> result = spore.call("cluster_health");
         assertEquals("es_spore", result.body.get("cluster_name").asText());
 
@@ -464,12 +390,6 @@ public class ElasticsearchTest {
     
     @Test
     public void test_cluster_settings() throws SporeException, IOException {
-    	// TODO : change that : We wait for 500 ms
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-
     	SporeResult<JsonNode> result = spore.call("cluster_settings");
         assertNotNull(result.body.get("transient").asText());
     }  
@@ -479,14 +399,15 @@ public class ElasticsearchTest {
     // curl http://localhost:9200/_cluster/settings
     // {"persistent":{},"transient":{"indices.ttl.interval":"60s"}}
     public void test_put_cluster_settings() throws SporeException, IOException {
+    	SporeResult<JsonNode> result = spore.call("put_cluster_settings","{\"transient\":{\"indices.ttl.interval\":\"60s\"}}");
+        assertTrue(result.body.get("error").asText() == null);
+    }  
+    
+    private void waitForCluster() {
     	// TODO : change that : We wait for 500 ms
     	try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
 		}
-
-    	SporeResult<JsonNode> result = spore.call("put_cluster_settings","{\"transient\":{\"indices.ttl.interval\":\"60s\"}}");
-        assertTrue(result.body.get("error").asText() == null);
-    }  
-    
+    }
 }
