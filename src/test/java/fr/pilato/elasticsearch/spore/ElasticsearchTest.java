@@ -261,6 +261,24 @@ public class ElasticsearchTest {
     }
 
     @Test
+    public void test_delete_index_all() throws SporeException, IOException {
+    	// TODO : change that : We wait for 500 ms
+    	try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+		}
+
+    	// We inject some beans
+    	test_index();
+    	
+    	node.client().admin().indices().prepareRefresh(_index).execute().actionGet();
+    	SporeResult<JsonNode> result = spore.call("delete_index", new ImmutableMap.Builder<String, String>()
+                .put("index", "_all")
+                .build());
+        assertTrue(result.body.get("ok").asBoolean());
+    }
+
+    @Test
     public void test_analyze() throws SporeException, IOException {
     	// TODO : change that : We wait for 500 ms
     	try {
@@ -281,6 +299,11 @@ public class ElasticsearchTest {
 		}
     }
 
+    /**
+     * Testing multi search API. It fails as ES doesn't support _msearch API with -d option and only wants --data-binary @file
+     * @throws SporeException
+     * @throws IOException
+     */
     @Test @Ignore
     public void test_multi_search() throws SporeException, IOException {
     	// TODO : change that : We wait for 500 ms
