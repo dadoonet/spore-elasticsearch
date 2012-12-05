@@ -121,6 +121,10 @@
         "cluster_settings" : {
             "path" : "/_cluster/settings",
             "method" : "GET"
+        },
+        "put_cluster_settings" : {
+            "path" : "/_cluster/settings",
+            "method" : "PUT"
 		}
    },
    "expected_status" : [ 200 ],

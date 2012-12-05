@@ -453,6 +453,20 @@ public class ElasticsearchTest {
     	SporeResult<JsonNode> result = spore.call("cluster_settings");
         assertNotNull(result.body.get("transient").asText());
     }  
-    
+
+    @Test // TODO Fix it, although it works in CURL 
+    // curl -XPUT http://localhost:9200/_cluster/settings -d '{"transient":{"indices.ttl.interval":"60s"}}'
+    // curl http://localhost:9200/_cluster/settings
+    // {"persistent":{},"transient":{"indices.ttl.interval":"60s"}}
+    public void test_put_cluster_settings() throws SporeException, IOException {
+    	// TODO : change that : We wait for 500 ms
+    	try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+		}
+
+    	SporeResult<JsonNode> result = spore.call("put_cluster_settings","{\"transient\":{\"indices.ttl.interval\":\"60s\"}}");
+        assertTrue(result.body.get("error").asText() == null);
+    }  
     
 }

@@ -35,7 +35,8 @@ Available APIs
 | shutdown             |     POST      | /_cluster/nodes/{nodes}/_shutdown          |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-shutdown.html |
 | nodes_stats          |     GET       | /_nodes/{nodeId}/stats/{stats}             |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-stats.html    |
 | cluster_state        |     GET       | /_cluster/state                            |http://www.elasticsearch.org/guide/reference/api/admin-cluster-state.html          | 
-| cluster_settings     |     GET       | /_cluster/settings                         |Not documented                                                                     |
+| cluster_settings     |     GET       | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/admin-cluster-update-settings.html|
+| put_cluster_settings |     PUT       | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/admin-cluster-update-settings.html|
 
 
 
@@ -192,7 +193,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      POST     | /{index}/{type}/{id}/_mlt                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/{type}/{id}/_update               |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      PUT      | /_bulk                                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      PUT      | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      PUT      | /_settings                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      PUT      | /_template/{name}                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      PUT      | /{index}/_bulk                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
