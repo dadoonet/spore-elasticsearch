@@ -452,6 +452,14 @@ public class ElasticsearchTest {
 
     	SporeResult<JsonNode> result = spore.call("cluster_health");
         assertEquals("es_spore", result.body.get("cluster_name").asText());
+
+        // Index some docs
+        test_index();
+        
+    	result = spore.call("cluster_health", new ImmutableMap.Builder<String, String>()
+                .put("index", _index)
+                .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
     }  
     
     @Test
