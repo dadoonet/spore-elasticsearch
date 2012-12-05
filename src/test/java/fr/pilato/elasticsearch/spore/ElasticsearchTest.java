@@ -359,7 +359,39 @@ public class ElasticsearchTest {
         assertEquals("es_spore", result.body.get("cluster_name").asText());
 
         result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
+                .put("stat", "fs")
+                .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+        result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
+                .put("stat", "http")
+                .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+        result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
+                .put("stat", "indices")
+                .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+        result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
                 .put("stat", "jvm")
+                .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+        result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
+                .put("stat", "network")
+                .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+        result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
+                .put("stat", "os")
+                .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+        result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
+                .put("stat", "process")
+                .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+        result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
+                .put("stat", "thread_pool")
+                .build());
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+        result = spore.call("nodes_stats", new ImmutableMap.Builder<String, String>()
+                .put("stat", "transport")
                 .build());
         assertEquals("es_spore", result.body.get("cluster_name").asText());
 
