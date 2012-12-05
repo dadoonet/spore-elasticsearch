@@ -18,26 +18,22 @@ Thanks to cloudbees for the [build status](https://buildhive.cloudbees.com): [![
 Available APIs
 --------------
 
-| API Name             |    Method     |               URL                     |                                Documentation                                      | 
-|----------------------|:-------------:|---------------------------------------|-----------------------------------------------------------------------------------|
-| welcome              |     GET       | /                                     |                                                                                   |
-| create_index         |     PUT       | /{index}                              |http://www.elasticsearch.org/guide/reference/api/admin-indices-create-index.html   |
-| delete_index         |    DELETE     | /{index}                              |http://www.elasticsearch.org/guide/reference/api/admin-indices-delete-index.html   |
-| put_mapping          |     PUT       | /{index}/_mapping                     |http://www.elasticsearch.org/guide/reference/api/admin-indices-put-mapping.html    |
-| get_mapping          |     GET       | /{index}/{type}/_mapping              |http://www.elasticsearch.org/guide/reference/api/admin-indices-get-mapping.html    |
-| delete_mapping       |    DELETE     | /{index}/{type}                       |http://www.elasticsearch.org/guide/reference/api/admin-indices-delete-mapping.html |
-| index                |     POST      | /{index}/{type}/{id}                  |http://www.elasticsearch.org/guide/reference/api/index_.html                       |
-| search               |     POST      | /{index}/{type}/_search               |http://www.elasticsearch.org/guide/reference/api/search/                           |
-| delete               |    DELETE     | /{index}/{type}/{id}                  |http://www.elasticsearch.org/guide/reference/api/delete.html                       |
-| analyze              |     GET       | /_analyze                             |http://www.elasticsearch.org/guide/reference/api/admin-indices-analyze.html        |
-| count                |     POST      | /_count                               |http://www.elasticsearch.org/guide/reference/api/count.html                        |
-| status               |     GET       | /{index}/_status                      |http://www.elasticsearch.org/guide/reference/api/admin-indices-status.html         |
-| shutdown             |     POST      | /_cluster/nodes/{nodes}/_shutdown     |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-shutdown.html |
-| nodes_stats          |     GET       | /_nodes/{nodeId}/stats/{stats}        |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-stats.html    |
-|                      |               |                                       |                                                                                   |
-|                      |               |                                       |                                                                                   |
-|                      |               |                                       |                                                                                   |
-|                      |               |                                       |                                                                                   |
+| API Name             |    Method     |               URL                          |                                Documentation                                      | 
+|----------------------|:-------------:|--------------------------------------------|-----------------------------------------------------------------------------------|
+| welcome              |     GET       | /                                          |                                                                                   |
+| create_index         |     PUT       | /{index}                                   |http://www.elasticsearch.org/guide/reference/api/admin-indices-create-index.html   |
+| delete_index         |    DELETE     | /{index}                                   |http://www.elasticsearch.org/guide/reference/api/admin-indices-delete-index.html   |
+| put_mapping          |     PUT       | /{index}/_mapping                          |http://www.elasticsearch.org/guide/reference/api/admin-indices-put-mapping.html    |
+| get_mapping          |     GET       | /{index}/{type}/_mapping                   |http://www.elasticsearch.org/guide/reference/api/admin-indices-get-mapping.html    |
+| delete_mapping       |    DELETE     | /{index}/{type}                            |http://www.elasticsearch.org/guide/reference/api/admin-indices-delete-mapping.html |
+| index                |     POST      | /{index}/{type}/{id}                       |http://www.elasticsearch.org/guide/reference/api/index_.html                       |
+| search               |     POST      | /{index}/{type}/_search                    |http://www.elasticsearch.org/guide/reference/api/search/                           |
+| delete               |    DELETE     | /{index}/{type}/{id}                       |http://www.elasticsearch.org/guide/reference/api/delete.html                       |
+| analyze              |     GET       | /_analyze                                  |http://www.elasticsearch.org/guide/reference/api/admin-indices-analyze.html        |
+| count                |     POST      | /_count                                    |http://www.elasticsearch.org/guide/reference/api/count.html                        |
+| status               |     GET       | /{index}/_status                           |http://www.elasticsearch.org/guide/reference/api/admin-indices-status.html         |
+| shutdown             |     POST      | /_cluster/nodes/{nodes}/_shutdown          |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-shutdown.html |
+| nodes_stats          |     GET       | /_nodes/{nodeId}/stats/{stats}             |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-stats.html    |
 
 
 TODO
@@ -54,165 +50,161 @@ grep "controller.registerHandler\(([^,]*),[^,]*" $ES_DIR -o -h -E -R --include "
 
 Here are the methods that have to be implemented in SPORE:
 
-| API Name             |    Method     |               URL                     |                                Documentation                                      | 
-|----------------------|:-------------:|---------------------------------------|-----------------------------------------------------------------------------------|
-| multi_search         |     POST      | /{index}/{type}/_msearch              |http://www.elasticsearch.org/guide/reference/api/multi-search.html                 |
+| API Name             |    Method     |               URL                          |                                Documentation                                      | 
+|----------------------|:-------------:|--------------------------------------------|-----------------------------------------------------------------------------------|
+| multi_search         |     POST      | /{index}/{type}/_msearch                   |http://www.elasticsearch.org/guide/reference/api/multi-search.html                 |
+|                      |    DELETE     | /_template/{name}                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |    DELETE     | /{index}/_query                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |    DELETE     | /{index}/_warmer                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |    DELETE     | /{index}/_warmer/{name}                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |    DELETE     | /{index}/{type}/_query                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |    DELETE     | /{index}/{type}/_warmer/{name}             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      |  /_aliases                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_cache/clear                              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_cluster/health/{index}                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_cluster/nodes/{nodeId}                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_cluster/nodes/{nodeId}/hot_threads       |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_cluster/state                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_flush                                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_mget                                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/fs/stats                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/hot_threads               |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/http                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/http/stats                |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/indices/stats             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/jvm                       |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/jvm/stats                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/network                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/network/stats             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/os                        |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/os/stats                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/process                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/process/stats             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/settings                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/stats                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/stats/fs                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/stats/http                |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/stats/indices             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/stats/jvm                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/stats/network             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/stats/os                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/stats/process             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/stats/thread_pool         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/stats/transport           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/thread_pool               |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/thread_pool/stats         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/transport                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_nodes/{nodeId}/transport/stats           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_optimize                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_refresh                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_search/scroll                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_search/scroll/{scroll_id}                |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_segments                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_settings                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_stats                                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_stats/flush                              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_stats/get                                |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_stats/indexing                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_stats/indexing/{indexingTypes1}          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_stats/merge                              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_stats/refresh                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_stats/search                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_stats/search/{searchGroupsStats1}        |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_stats/store                              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_stats/warmer                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_template/{name}                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /_validate/query                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_aliases                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_analyze                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_cache/clear                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_flush                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_mget                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_optimize                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_refresh                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_segments                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_settings                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_stats                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_stats/docs                       |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_stats/flush                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_stats/get                        |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_stats/indexing                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_stats/indexing/{indexingTypes2}  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_stats/merge                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_stats/refresh                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_stats/search                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_stats/search/{searchGroupsStats2}|http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_stats/store                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_stats/warmer                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_validate/query                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_warmer                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/_warmer/{name}                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/{type}/_mget                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/{type}/_msearch                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/{type}/_percolate                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/{type}/_validate/query            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/{type}/_warmer/{name}             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/{type}/{id}                       |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/{type}/{id}/_explain              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | /{index}/{type}/{id}/_mlt                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      GET      | _stats/docs                                |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      HEAD     | /                                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      HEAD     | /{index}                                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      HEAD     | /{index}/{type}                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      HEAD     | /{index}/{type}/{id}                       |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_aliases                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_analyze                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_bulk                                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_cache/clear                              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_cluster/nodes/_restart                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_cluster/nodes/{nodeId}/_restart          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_cluster/reroute                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_flush                                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_gateway/snapshot                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_mget                                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_msearch                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_optimize                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_refresh                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_search/scroll                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_search/scroll/{scroll_id}                |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_template/{name}                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /_validate/query                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}   SAME AS PUT                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_analyze                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_bulk                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_cache/clear                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_close                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_count                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_flush                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_gateway/snapshot                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_mget                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_msearch                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_open                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_optimize                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_refresh                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/_validate/query                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/{type}                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/{type}/_bulk                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/{type}/_count                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/{type}/_mget                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/{type}/_msearch                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/{type}/_percolate                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/{type}/_validate/query            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/{type}/{id}/_create               |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/{type}/{id}/_mlt                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      POST     | /{index}/{type}/{id}/_update               |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      PUT      | /_bulk                                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      PUT      | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      PUT      | /_settings                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      PUT      | /_template/{name}                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      PUT      | /{index}/_bulk                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      PUT      | /{index}/_settings                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      PUT      | /{index}/_warmer/{name}                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      PUT      | /{index}/{type}/_bulk                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      PUT      | /{index}/{type}/_warmer/{name}             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
+|                      |      PUT      | /{index}/{type}/{id}/_create               |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 
-
-```
-DELETE, "/"
-DELETE, "/_template/{name}"
-DELETE, "/{index}/_query"
-DELETE, "/{index}/_warmer"
-DELETE, "/{index}/_warmer/{name}"
-DELETE, "/{index}/{type}/_query"
-DELETE, "/{index}/{type}/_warmer/{name}"
-GET, "/_aliases"
-GET, "/_cache/clear"
-GET, "/_cluster/health/{index}"
-GET, "/_cluster/nodes/{nodeId}"
-GET, "/_cluster/nodes/{nodeId}/hot_threads"
-GET, "/_cluster/settings"
-GET, "/_cluster/state"
-GET, "/_flush"
-GET, "/_mget"
-GET, "/_nodes/{nodeId}"
-GET, "/_nodes/{nodeId}/fs/stats"
-GET, "/_nodes/{nodeId}/hot_threads"
-GET, "/_nodes/{nodeId}/http"
-GET, "/_nodes/{nodeId}/http/stats"
-GET, "/_nodes/{nodeId}/indices/stats"
-GET, "/_nodes/{nodeId}/jvm"
-GET, "/_nodes/{nodeId}/jvm/stats"
-GET, "/_nodes/{nodeId}/network"
-GET, "/_nodes/{nodeId}/network/stats"
-GET, "/_nodes/{nodeId}/os"
-GET, "/_nodes/{nodeId}/os/stats"
-GET, "/_nodes/{nodeId}/process"
-GET, "/_nodes/{nodeId}/process/stats"
-GET, "/_nodes/{nodeId}/settings"
-GET, "/_nodes/{nodeId}/stats"
-GET, "/_nodes/{nodeId}/stats/fs"
-GET, "/_nodes/{nodeId}/stats/http"
-GET, "/_nodes/{nodeId}/stats/indices"
-GET, "/_nodes/{nodeId}/stats/jvm"
-GET, "/_nodes/{nodeId}/stats/network"
-GET, "/_nodes/{nodeId}/stats/os"
-GET, "/_nodes/{nodeId}/stats/process"
-GET, "/_nodes/{nodeId}/stats/thread_pool"
-GET, "/_nodes/{nodeId}/stats/transport"
-GET, "/_nodes/{nodeId}/thread_pool"
-GET, "/_nodes/{nodeId}/thread_pool/stats"
-GET, "/_nodes/{nodeId}/transport"
-GET, "/_nodes/{nodeId}/transport/stats"
-GET, "/_optimize"
-GET, "/_refresh"
-GET, "/_search/scroll"
-GET, "/_search/scroll/{scroll_id}"
-GET, "/_segments"
-GET, "/_settings"
-GET, "/_stats"
-GET, "/_stats/flush"
-GET, "/_stats/get"
-GET, "/_stats/indexing"
-GET, "/_stats/indexing/{indexingTypes1}"
-GET, "/_stats/merge"
-GET, "/_stats/refresh"
-GET, "/_stats/search"
-GET, "/_stats/search/{searchGroupsStats1}"
-GET, "/_stats/store"
-GET, "/_stats/warmer"
-GET, "/_template/{name}"
-GET, "/_validate/query"
-GET, "/{index}/_aliases"
-GET, "/{index}/_analyze"
-GET, "/{index}/_cache/clear"
-GET, "/{index}/_flush"
-GET, "/{index}/_mget"
-GET, "/{index}/_optimize"
-GET, "/{index}/_refresh"
-GET, "/{index}/_segments"
-GET, "/{index}/_settings"
-GET, "/{index}/_stats"
-GET, "/{index}/_stats/docs"
-GET, "/{index}/_stats/flush"
-GET, "/{index}/_stats/get"
-GET, "/{index}/_stats/indexing"
-GET, "/{index}/_stats/indexing/{indexingTypes2}"
-GET, "/{index}/_stats/merge"
-GET, "/{index}/_stats/refresh"
-GET, "/{index}/_stats/search"
-GET, "/{index}/_stats/search/{searchGroupsStats2}"
-GET, "/{index}/_stats/store"
-GET, "/{index}/_stats/warmer"
-GET, "/{index}/_validate/query"
-GET, "/{index}/_warmer"
-GET, "/{index}/_warmer/{name}"
-GET, "/{index}/{type}/_mget"
-GET, "/{index}/{type}/_msearch"
-GET, "/{index}/{type}/_percolate"
-GET, "/{index}/{type}/_validate/query"
-GET, "/{index}/{type}/_warmer/{name}"
-GET, "/{index}/{type}/{id}"
-GET, "/{index}/{type}/{id}/_explain"
-GET, "/{index}/{type}/{id}/_mlt"
-GET, "_stats/docs"
-HEAD, "/"
-HEAD, "/{index}"
-HEAD, "/{index}/{type}"
-HEAD, "/{index}/{type}/{id}"
-POST, "/_aliases"
-POST, "/_analyze"
-POST, "/_bulk"
-POST, "/_cache/clear"
-POST, "/_cluster/nodes/_restart"
-POST, "/_cluster/nodes/{nodeId}/_restart"
-POST, "/_cluster/reroute"
-POST, "/_flush"
-POST, "/_gateway/snapshot"
-POST, "/_mget"
-POST, "/_msearch"
-POST, "/_optimize"
-POST, "/_refresh"
-POST, "/_search/scroll"
-POST, "/_search/scroll/{scroll_id}"
-POST, "/_template/{name}"
-POST, "/_validate/query"
-POST, "/{index}"   SAME AS PUT
-POST, "/{index}/_analyze"
-POST, "/{index}/_bulk"
-POST, "/{index}/_cache/clear"
-POST, "/{index}/_close"
-POST, "/{index}/_count"
-POST, "/{index}/_flush"
-POST, "/{index}/_gateway/snapshot"
-POST, "/{index}/_mget"
-POST, "/{index}/_msearch"
-POST, "/{index}/_open"
-POST, "/{index}/_optimize"
-POST, "/{index}/_refresh"
-POST, "/{index}/_validate/query"
-POST, "/{index}/{type}"
-POST, "/{index}/{type}/_bulk"
-POST, "/{index}/{type}/_count"
-POST, "/{index}/{type}/_mget"
-POST, "/{index}/{type}/_msearch"
-POST, "/{index}/{type}/_percolate"
-POST, "/{index}/{type}/_validate/query"
-POST, "/{index}/{type}/{id}/_create"
-POST, "/{index}/{type}/{id}/_mlt"
-POST, "/{index}/{type}/{id}/_update"
-PUT, "/_bulk"
-PUT, "/_cluster/settings"
-PUT, "/_settings"
-PUT, "/_template/{name}"
-PUT, "/{index}/_bulk"
-PUT, "/{index}/_settings"
-PUT, "/{index}/_warmer/{name}"
-PUT, "/{index}/{type}/_bulk"
-PUT, "/{index}/{type}/_warmer/{name}"
-PUT, "/{index}/{type}/{id}/_create"
-```
 
 Ignored APIs
 ------------
