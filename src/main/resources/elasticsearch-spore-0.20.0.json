@@ -114,6 +114,13 @@
                "stat"
             ]
         },
+        "hot_threads" : {
+            "path" : "/_nodes/:nodes/hot_threads",
+            "method" : "GET",
+            "optional_params" : [
+               "nodes"
+            ]
+        },
         "cluster_state" : {
             "path" : "/_cluster/state",
             "method" : "GET"

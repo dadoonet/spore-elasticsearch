@@ -38,6 +38,7 @@ Available APIs
 | cluster_health       |     GET       | /_cluster/health/{index}                   |http://www.elasticsearch.org/guide/reference/api/admin-cluster-health.html         |
 | cluster_settings     |     GET       | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/admin-cluster-update-settings.html|
 | put_cluster_settings |     PUT       | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/admin-cluster-update-settings.html|
+| hot_threads          |     GET       | /_nodes/{nodeId}/hot_threads               |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-hot-threads.html|
 
 
 
@@ -66,13 +67,10 @@ Here are the methods that have to be implemented in SPORE:
 |                      |    DELETE     | /{index}/{type}/_warmer/{name}             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_aliases                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_cache/clear                              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_cluster/nodes/{nodeId}                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_cluster/nodes/{nodeId}/hot_threads       |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_flush                                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_mget                                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_nodes/{nodeId}                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_nodes/{nodeId}/fs/stats                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_nodes/{nodeId}/hot_threads               |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_nodes/{nodeId}/http                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_nodes/{nodeId}/http/stats                |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_nodes/{nodeId}/indices/stats             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
@@ -208,7 +206,9 @@ Known issues
 
 | API Name             |    Method     |               URL                          |                                Documentation                                      | 
 |----------------------|:-------------:|--------------------------------------------|-----------------------------------------------------------------------------------|
-| multi_search         |     POST      | /{index}/{type}/_msearch                   |Doesn't work as --data-binary is required instead of -d                            |
+| multi_search         |     POST      | /{index}/{type}/_msearch                   |Doesn't work JSpore issue?                                                         |
+| count                |     POST      | /_count                                    |Doesn't work JSpore issue?                                                         |
+| hot_threads          |     GET       | /_nodes/{nodeId}/hot_threads               |Doesn't work. Answer is not a valid JSon                                           |
 
 
 Ignored APIs

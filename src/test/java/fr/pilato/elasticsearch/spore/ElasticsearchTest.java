@@ -368,6 +368,16 @@ public class ElasticsearchTest {
 
     }  
     
+    @Test // TODO It fails as the Answer is not a valid JSON answer
+    public void test_hot_threads() throws SporeException, IOException {
+    	SporeResult<JsonNode> result = spore.call("hot_threads", new ImmutableMap.Builder<String, String>()
+                .put("nodes", "_all")
+                .build());
+        assertTrue(result.response.getResponseBody().contains("[ES Test Spore Node]"));
+        result = spore.call("hot_threads");
+        assertTrue(result.response.getResponseBody().contains("[ES Test Spore Node]"));
+    }  
+    
     @Test
     public void test_cluster_state() throws SporeException, IOException {
     	SporeResult<JsonNode> result = spore.call("cluster_state");
