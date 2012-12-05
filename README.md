@@ -34,6 +34,9 @@ Available APIs
 | status               |     GET       | /{index}/_status                           |http://www.elasticsearch.org/guide/reference/api/admin-indices-status.html         |
 | shutdown             |     POST      | /_cluster/nodes/{nodes}/_shutdown          |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-shutdown.html |
 | nodes_stats          |     GET       | /_nodes/{nodeId}/stats/{stats}             |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-stats.html    |
+| cluster_state        |     GET       | /_cluster/state                            |http://www.elasticsearch.org/guide/reference/api/admin-cluster-state.html          | 
+
+
 
 
 TODO
@@ -52,7 +55,6 @@ Here are the methods that have to be implemented in SPORE:
 
 | API Name             |    Method     |               URL                          |                                Documentation                                      | 
 |----------------------|:-------------:|--------------------------------------------|-----------------------------------------------------------------------------------|
-| multi_search         |     POST      | /{index}/{type}/_msearch                   |http://www.elasticsearch.org/guide/reference/api/multi-search.html                 |
 |                      |    DELETE     | /_template/{name}                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |    DELETE     | /{index}/_query                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |    DELETE     | /{index}/_warmer                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
@@ -202,13 +204,19 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      PUT      | /{index}/{type}/{id}/_create               |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 
 
+Known issues
+------------
+
+| API Name             |    Method     |               URL                          |                                Documentation                                      | 
+|----------------------|:-------------:|--------------------------------------------|-----------------------------------------------------------------------------------|
+| multi_search         |     POST      | /{index}/{type}/_msearch                   |Doesn't work as --data-binary is required instead of -d                            |
+
+
 Ignored APIs
 ------------
 
-|                      |      GET      | /{index}/{type}/_msearch                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 
 ```
-GET, "/_search"
-GET, "/{index}/_search"
 GET, "/{index}/{type}/_search"
+GET, "/{index}/{type}/_msearch"
 ```

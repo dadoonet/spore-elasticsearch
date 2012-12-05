@@ -113,6 +113,10 @@
                "nodes",
                "stat"
             ]
+        },
+        "cluster_state" : {
+            "path" : "/_cluster/state",
+            "method" : "GET"
          }
    },
    "expected_status" : [ 200 ],

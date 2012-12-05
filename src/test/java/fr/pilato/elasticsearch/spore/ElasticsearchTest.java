@@ -425,5 +425,17 @@ public class ElasticsearchTest {
 
     }  
     
+    @Test
+    public void test_cluster_state() throws SporeException, IOException {
+    	// TODO : change that : We wait for 500 ms
+    	try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+		}
+
+    	SporeResult<JsonNode> result = spore.call("cluster_state");
+        assertEquals("es_spore", result.body.get("cluster_name").asText());
+    }  
+    
     
 }
