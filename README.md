@@ -141,7 +141,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      GET      | /{index}/_warmer                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_warmer/{name}                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/{type}/_mget                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/{type}/_msearch                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/{type}/_percolate                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/{type}/_validate/query            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/{type}/_warmer/{name}             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
@@ -163,7 +162,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      POST     | /_flush                                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /_gateway/snapshot                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /_mget                                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      POST     | /_msearch                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /_optimize                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /_refresh                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /_search/scroll                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
@@ -179,7 +177,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      POST     | /{index}/_flush                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/_gateway/snapshot                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/_mget                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      POST     | /{index}/_msearch                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/_open                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/_optimize                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/_refresh                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
@@ -188,7 +185,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      POST     | /{index}/{type}/_bulk                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/{type}/_count                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/{type}/_mget                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      POST     | /{index}/{type}/_msearch                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/{type}/_percolate                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/{type}/_validate/query            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/{type}/{id}/_create               |http://www.elasticsearch.org/guide/reference/api/xxx                               |
@@ -208,6 +204,8 @@ Here are the methods that have to be implemented in SPORE:
 
 Ignored APIs
 ------------
+
+|                      |      GET      | /{index}/{type}/_msearch                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 
 ```
 GET, "/_search"
