@@ -116,7 +116,9 @@ public class ElasticsearchTest {
         assertTrue(result.body.get("ok").asBoolean());
     }
     
-    @Test
+    @Test // TODO Fix it, although it works in CURL 
+    // $ curl -XPUT http://localhost:9200/sporeidx/sporetype/_mapping -d '{"sporetype":{"properties":{}}}'
+    // {"ok":true,"acknowledged":true}
     public void test_put_mapping() throws SporeException, IOException {
     	// We need to create an index first
     	node.client().admin().indices().prepareCreate(_index).execute().actionGet();
@@ -333,7 +335,9 @@ public class ElasticsearchTest {
         assertNotNull(result.body.get("took"));    
     }
 
-    @Test
+    @Test // TODO Fix it, although it works in CURL 
+    // curl -XPOST http://localhost:9200/sporeidx/sporetype/_count -d '{"match_all":{}}'
+    // {"count":2,"_shards":{"total":5,"successful":5,"failed":0}}
     public void test_count() throws SporeException, IOException {
     	// TODO : change that : We wait for 500 ms
     	try {
@@ -351,6 +355,7 @@ public class ElasticsearchTest {
                 .build(),
                 "{\"match_all\":{}}");
         assertNotNull(result.body.get("took"));
+        assertEquals(2, result.body.get("count"));
 
         result = spore.call("count", new ImmutableMap.Builder<String, String>()
                 .put("index", _index)
