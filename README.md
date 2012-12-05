@@ -35,6 +35,7 @@ Available APIs
 | shutdown             |     POST      | /_cluster/nodes/{nodes}/_shutdown          |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-shutdown.html |
 | nodes_stats          |     GET       | /_nodes/{nodeId}/stats/{stats}             |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-stats.html    |
 | cluster_state        |     GET       | /_cluster/state                            |http://www.elasticsearch.org/guide/reference/api/admin-cluster-state.html          | 
+| cluster_settings     |     GET       | /_cluster/settings                         |Not documented                                                                     |
 
 
 
@@ -66,8 +67,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      GET      | /_cluster/health/{index}                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_cluster/nodes/{nodeId}                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_cluster/nodes/{nodeId}/hot_threads       |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_cluster/state                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_flush                                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_mget                                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_nodes/{nodeId}                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
