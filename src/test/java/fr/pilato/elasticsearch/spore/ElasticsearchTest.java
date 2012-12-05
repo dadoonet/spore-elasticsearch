@@ -434,7 +434,7 @@ public class ElasticsearchTest {
 		}
 
     	SporeResult<JsonNode> result = spore.call("cluster_state");
-        assertEquals("es_spore", result.body.get("cluster_name").asText());
+        assertNotNull(result.body.get("master_node").asText());
     }  
     
     
