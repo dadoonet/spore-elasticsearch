@@ -1,5 +1,9 @@
 package fr.pilato.elasticsearch.spore;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
+import java.io.IOException;
+
 public class BeerHelper {
 
 	public static Beer generate() {
@@ -44,4 +48,13 @@ public class BeerHelper {
 
 		return null;
 	}
+
+    public static String toJsonString(Beer beer) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(beer);
+        } catch (IOException e) {
+            return ((Object) beer).toString();
+        }
+    }
 }

@@ -2,6 +2,8 @@ package fr.pilato.elasticsearch.spore;
 
 import java.io.Serializable;
 
+import static fr.pilato.elasticsearch.spore.BeerHelper.toJsonString;
+
 public class Beer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -102,4 +104,9 @@ public class Beer implements Serializable {
 
 		return true;
 	}
+
+    @Override
+    public String toString() {
+        return toJsonString(this);
+    }
 }
