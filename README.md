@@ -15,6 +15,8 @@ Build Status
 
 Thanks to cloudbees for the [build status](https://buildhive.cloudbees.com): [![Build Status](https://buildhive.cloudbees.com/job/dadoonet/job/spore-elasticsearch/badge/icon)](https://buildhive.cloudbees.com/job/dadoonet/job/spore-elasticsearch/)
 
+[![Test trends](https://buildhive.cloudbees.com/job/dadoonet/job/spore-elasticsearch/fr.pilato.elasticsearch$spore-elasticsearch/test/trend)](https://buildhive.cloudbees.com/job/dadoonet/job/spore-elasticsearch/)
+
 Available APIs
 --------------
 
