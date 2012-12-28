@@ -1,6 +1,6 @@
 {
    "base_url" : "http://localhost:9200/",
-   "version" : "0.20.0.RC1",
+   "version" : "0.20.2",
    "methods" : {
       "welcome" : {
          "path" : "/",
@@ -70,7 +70,8 @@
                "index",
                "type",
                "id"
-            ]
+            ],
+            "expected_status" : [ 200, 201, 404 ]
         },
         "analyze" : {
             "path" : "/_analyze",
@@ -141,7 +142,7 @@
             "method" : "PUT"
 		}
    },
-   "expected_status" : [ 200 ],
+   "expected_status" : [ 200, 201 ],
    "name" : "Elasticsearch",
    "authority" : "http://elasticsearch.org/SPORE",
    "meta" : {
