@@ -6,9 +6,9 @@ Welcome to the [Elasticsearch](http://www.elasticsearch.org/) [SPORE](https://gi
 Versions
 --------
 
-| spore-elasticsearch  | ElasticSearch |
-|:--------------------:|:-------------:|
-|   master (0.0.1)     |    0.20.0.RC1 |
+| spore-elasticsearch  | ElasticSearch |  JSpore  |
+|:--------------------:|:-------------:|:--------:|
+|   master (0.0.1)     |    0.20.2     |  0.0.1   |
 
 Build Status
 ------------
@@ -20,27 +20,28 @@ Thanks to cloudbees for the [build status](https://buildhive.cloudbees.com): [![
 Available APIs
 --------------
 
-| API Name             |    Method     |               URL                          |                                Documentation                                      | 
-|----------------------|:-------------:|--------------------------------------------|-----------------------------------------------------------------------------------|
-| welcome              |     GET       | /                                          |                                                                                   |
-| create_index         |     PUT       | /{index}                                   |http://www.elasticsearch.org/guide/reference/api/admin-indices-create-index.html   |
-| delete_index         |    DELETE     | /{index}                                   |http://www.elasticsearch.org/guide/reference/api/admin-indices-delete-index.html   |
-| put_mapping          |     PUT       | /{index}/_mapping                          |http://www.elasticsearch.org/guide/reference/api/admin-indices-put-mapping.html    |
-| get_mapping          |     GET       | /{index}/{type}/_mapping                   |http://www.elasticsearch.org/guide/reference/api/admin-indices-get-mapping.html    |
-| delete_mapping       |    DELETE     | /{index}/{type}                            |http://www.elasticsearch.org/guide/reference/api/admin-indices-delete-mapping.html |
-| index                |     POST      | /{index}/{type}/{id}                       |http://www.elasticsearch.org/guide/reference/api/index_.html                       |
-| search               |     POST      | /{index}/{type}/_search                    |http://www.elasticsearch.org/guide/reference/api/search/                           |
-| delete               |    DELETE     | /{index}/{type}/{id}                       |http://www.elasticsearch.org/guide/reference/api/delete.html                       |
-| analyze              |     GET       | /_analyze                                  |http://www.elasticsearch.org/guide/reference/api/admin-indices-analyze.html        |
-| count                |     POST      | /_count                                    |http://www.elasticsearch.org/guide/reference/api/count.html                        |
-| status               |     GET       | /{index}/_status                           |http://www.elasticsearch.org/guide/reference/api/admin-indices-status.html         |
-| shutdown             |     POST      | /_cluster/nodes/{nodes}/_shutdown          |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-shutdown.html |
-| nodes_stats          |     GET       | /_nodes/{nodeId}/stats/{stats}             |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-stats.html    |
-| cluster_state        |     GET       | /_cluster/state                            |http://www.elasticsearch.org/guide/reference/api/admin-cluster-state.html          | 
-| cluster_health       |     GET       | /_cluster/health/{index}                   |http://www.elasticsearch.org/guide/reference/api/admin-cluster-health.html         |
-| cluster_settings     |     GET       | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/admin-cluster-update-settings.html|
-| put_cluster_settings |     PUT       | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/admin-cluster-update-settings.html|
+| API Name             |    Method     |               URL                          |                                Documentation                                        |
+|----------------------|:-------------:|--------------------------------------------|-------------------------------------------------------------------------------------|
+| welcome              |     GET       | /                                          |                                                                                     |
+| create_index         |     PUT       | /{index}                                   |http://www.elasticsearch.org/guide/reference/api/admin-indices-create-index.html     |
+| delete_index         |    DELETE     | /{index}                                   |http://www.elasticsearch.org/guide/reference/api/admin-indices-delete-index.html     |
+| put_mapping          |     PUT       | /{index}/_mapping                          |http://www.elasticsearch.org/guide/reference/api/admin-indices-put-mapping.html      |
+| get_mapping          |     GET       | /{index}/{type}/_mapping                   |http://www.elasticsearch.org/guide/reference/api/admin-indices-get-mapping.html      |
+| delete_mapping       |    DELETE     | /{index}/{type}                            |http://www.elasticsearch.org/guide/reference/api/admin-indices-delete-mapping.html   |
+| index                |     POST      | /{index}/{type}/{id}                       |http://www.elasticsearch.org/guide/reference/api/index_.html                         |
+| search               |     POST      | /{index}/{type}/_search                    |http://www.elasticsearch.org/guide/reference/api/search/                             |
+| delete               |    DELETE     | /{index}/{type}/{id}                       |http://www.elasticsearch.org/guide/reference/api/delete.html                         |
+| analyze              |     GET       | /_analyze                                  |http://www.elasticsearch.org/guide/reference/api/admin-indices-analyze.html          |
+| count                |     POST      | /_count                                    |http://www.elasticsearch.org/guide/reference/api/count.html                          |
+| status               |     GET       | /{index}/_status                           |http://www.elasticsearch.org/guide/reference/api/admin-indices-status.html           |
+| shutdown             |     POST      | /_cluster/nodes/{nodes}/_shutdown          |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-shutdown.html   |
+| nodes_stats          |     GET       | /_nodes/{nodeId}/stats/{stats}             |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-stats.html      |
+| cluster_state        |     GET       | /_cluster/state                            |http://www.elasticsearch.org/guide/reference/api/admin-cluster-state.html            |
+| cluster_health       |     GET       | /_cluster/health/{index}                   |http://www.elasticsearch.org/guide/reference/api/admin-cluster-health.html           |
+| cluster_settings     |     GET       | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/admin-cluster-update-settings.html  |
+| put_cluster_settings |     PUT       | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/admin-cluster-update-settings.html  |
 | hot_threads          |     GET       | /_nodes/{nodeId}/hot_threads               |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-hot-threads.html|
+| multi_search         |     GET       | /{index}/{type}/_msearch                   |http://www.elasticsearch.org/guide/reference/api/multi-search.html                   |
 
 
 
@@ -189,9 +190,7 @@ Known issues
 
 | API Name             |    Method     |               URL                          |                                Documentation                                      | 
 |----------------------|:-------------:|--------------------------------------------|-----------------------------------------------------------------------------------|
-| multi_search         |     POST      | /{index}/{type}/_msearch                   |Doesn't work JSpore issue?                                                         |
-| count                |     POST      | /_count                                    |Doesn't work JSpore issue?                                                         |
-| hot_threads          |     GET       | /_nodes/{nodeId}/hot_threads               |Doesn't work. Answer is not a valid JSon                                           |
+| multi_search         |     GET       | /{index}/{type}/_msearch                   |Doesn't work JSpore issue?                                                         |
 
 
 Ignored APIs
@@ -200,5 +199,5 @@ Ignored APIs
 
 ```
 GET, "/{index}/{type}/_search"
-GET, "/{index}/{type}/_msearch"
+POST, "/{index}/{type}/_msearch"
 ```
