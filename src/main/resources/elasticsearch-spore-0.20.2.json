@@ -79,7 +79,7 @@
         },
         "multi_search" : {
             "path" : "/:index/:type/_msearch",
-            "method" : "POST",
+            "method" : "GET",
             "optional_params" : [
                "index",
                "type"

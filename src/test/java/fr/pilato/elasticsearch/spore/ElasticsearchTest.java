@@ -286,6 +286,9 @@ public class ElasticsearchTest {
      * @throws IOException
      */
     @Test
+    // TODO Fix it : wait for PR https://github.com/AsyncHttpClient/async-http-client/pull/193
+    // and update in JSpore for async http client 1.8.0
+    // and find why in ES the following document does not work as is
     public void test_multi_search() throws SporeException, IOException {
     	// We inject some beans
     	test_index();
@@ -295,7 +298,9 @@ public class ElasticsearchTest {
                 .put("index", _index)
                 .put("type", _type)
                 .build(),
-                "{}\n{\"query\":{\"match_all\":{}}}\n");
+                "{}" +
+                "{\"query\":{\"match_all\":{}}}" +
+                "");
         assertNotNull(result.body.get("took"));
 
         result = spore.call("multi_search", new ImmutableMap.Builder<String, String>()
