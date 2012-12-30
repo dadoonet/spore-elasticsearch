@@ -1,6 +1,6 @@
 package fr.pilato.elasticsearch.spore;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 

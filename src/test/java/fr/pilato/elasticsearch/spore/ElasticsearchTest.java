@@ -2,23 +2,13 @@ package fr.pilato.elasticsearch.spore;
 /*
  */
 
-import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.google.common.collect.ImmutableMap;
 import junit.framework.Assert;
 import net.linkfluence.jspore.Spore;
 import net.linkfluence.jspore.SporeException;
 import net.linkfluence.jspore.SporeResult;
-
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.node.ArrayNode;
 import org.elasticsearch.common.io.FileSystemUtils;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.settings.Settings;
@@ -30,7 +20,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.google.common.collect.ImmutableMap;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
+import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
+import static org.junit.Assert.*;
 
 /**
  * Test the elasticsearch spore spec.
