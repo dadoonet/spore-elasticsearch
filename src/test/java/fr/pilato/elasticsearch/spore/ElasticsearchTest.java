@@ -197,15 +197,18 @@ public class ElasticsearchTest {
                 .build(),
                 "{\"query\":{\"match_all\":{}}}");
         assertNotNull(result.body.get("took"));
+        assertEquals(2, result.body.get("hits").get("total").asInt());
 
         result = spore.call("search", new ImmutableMap.Builder<String, String>()
                 .put("index", _index)
                 .build(),
                 "{\"query\":{\"match_all\":{}}}");
         assertNotNull(result.body.get("took"));
-        
+        assertEquals(2, result.body.get("hits").get("total").asInt());
+
         result = spore.call("search", "{\"query\":{\"match_all\":{}}}");
-        assertNotNull(result.body.get("took"));    
+        assertNotNull(result.body.get("took"));
+        assertEquals(2, result.body.get("hits").get("total").asInt());
     }
 
     /**
@@ -305,33 +308,28 @@ public class ElasticsearchTest {
         assertNotNull(result.body.get("took"));    
     }
 
-    @Test // TODO Fix it, although it works in CURL 
-    // curl -XPOST http://localhost:9200/sporeidx/sporetype/_count -d '{"match_all":{}}'
-    // {"count":2,"_shards":{"total":5,"successful":5,"failed":0}}
+    @Test
     public void test_count() throws SporeException, IOException, InterruptedException {
     	// We inject some beans
     	test_index();
     	
     	node.client().admin().indices().prepareRefresh().execute().actionGet();
 
-        Thread.sleep(1000);
-
     	SporeResult<JsonNode> result = spore.call("count", new ImmutableMap.Builder<String, String>()
                 .put("index", _index)
                 .put("type", _type)
                 .build(),
                 "{\"match_all\":{}}");
-        assertNotNull(result.body.get("took"));
-        assertEquals(2, result.body.get("count"));
+        assertEquals(2, result.body.get("count").asInt());
 
         result = spore.call("count", new ImmutableMap.Builder<String, String>()
                 .put("index", _index)
                 .build(),
                 "{\"match_all\":{}}");
-        assertNotNull(result.body.get("took"));
+        assertEquals(2, result.body.get("count").asInt());
         
         result = spore.call("count", "{\"match_all\":{}}");
-        assertNotNull(result.body.get("took"));    
+        assertEquals(2, result.body.get("count").asInt());
     }
 
     @Test
