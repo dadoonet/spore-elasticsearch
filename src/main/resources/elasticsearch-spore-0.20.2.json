@@ -141,6 +141,29 @@
             "path" : "/_cluster/settings",
             "method" : "PUT"
         },
+       "index_stats" : {
+           "path" : "/:index/_stats/:stat/:option/:type",
+           "method" : "GET",
+           "optional_params" : [
+               "index",
+               "stat",
+               "option",
+               "type"
+           ]
+       },
+       "index_stats_options" : {
+           "path" : "/:index/_stats/:stat/:option/:type?flush=:flush&merge=:merge&refresh=:refresh",
+           "method" : "GET",
+           "optional_params" : [
+               "index",
+               "stat",
+               "option",
+               "type",
+               "flush",
+               "merge",
+               "refresh"
+           ]
+       },
        "flush" : {
            "path" : "/:index/_flush",
            "method" : "GET",

@@ -475,6 +475,79 @@ public class ElasticsearchTest {
         assertTrue(result.body.get("ok").asBoolean());
     }
 
+    @Test
+    public void test_index_stats() throws SporeException, IOException {
+        // We inject some beans
+        test_index();
+        node.client().admin().indices().prepareRefresh(_index).execute().actionGet();
+
+        SporeResult<JsonNode> result = spore.call("index_stats");
+        assertEquals(2, result.body.get("_all").get("primaries").get("docs").get("count").asInt());
+
+        result = spore.call("index_stats", new ImmutableMap.Builder<String, String>()
+                .put("index", _index)
+                .build());
+        assertEquals(2, result.body.get("_all").get("primaries").get("docs").get("count").asInt());
+
+        result = spore.call("index_stats", new ImmutableMap.Builder<String, String>()
+                .put("index", "_all")
+                .build());
+        assertEquals(2, result.body.get("_all").get("primaries").get("docs").get("count").asInt());
+
+        indexStatTestHelper("docs", "store");
+        indexStatTestHelper("store", "docs");
+        indexStatTestHelper("indexing", "docs");
+        indexStatTestHelper("get", "docs");
+        indexStatTestHelper("search", "docs");
+        indexStatTestHelper("indexing", "store", _type);
+        indexStatTestHelper("warmer", "docs");
+    }
+
+    private void indexStatTestHelper(String expected, String notexpected, String... types) throws SporeException {
+        ImmutableMap.Builder<String, String> parameters = new ImmutableMap.Builder<String, String>()
+                .put("index", _index)
+                .put("option", expected);
+
+        String type = "";
+        for (int i = 0; i < types.length; i++) {
+            if (i > 0) type += ",";
+            type += types[i];
+        }
+
+        parameters.put("type", type);
+
+        SporeResult<JsonNode> result = spore.call("index_stats", parameters.build());
+        assertNull(result.body.get("_all").get("primaries").get(notexpected));
+        assertNotNull(result.body.get("_all").get("primaries").get(expected));
+    }
+
+    @Test
+    public void test_index_stats_options() throws SporeException, IOException {
+        // We inject some beans
+        test_index();
+        node.client().admin().indices().prepareRefresh(_index).execute().actionGet();
+
+        SporeResult<JsonNode> result = spore.call("index_stats_options", new ImmutableMap.Builder<String, String>()
+                .put("index", "_all")
+                .put("flush", "false")
+                .put("merge", "false")
+                .put("refresh", "false")
+                .build());
+        assertNull(result.body.get("_all").get("primaries").get("refresh"));
+        assertNull(result.body.get("_all").get("primaries").get("merges"));
+        assertNull(result.body.get("_all").get("primaries").get("flush"));
+
+        result = spore.call("index_stats_options", new ImmutableMap.Builder<String, String>()
+                .put("index", "_all")
+                .put("flush", "true")
+                .put("merge", "true")
+                .put("refresh", "true")
+                .build());
+        assertNotNull(result.body.get("_all").get("primaries").get("refresh"));
+        assertNotNull(result.body.get("_all").get("primaries").get("merges"));
+        assertNotNull(result.body.get("_all").get("primaries").get("flush"));
+    }
+
     private void waitForCluster() {
     	// TODO : change that : We wait for 500 ms
     	try {

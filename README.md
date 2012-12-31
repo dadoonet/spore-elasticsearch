@@ -42,7 +42,9 @@ Available APIs
 | put_cluster_settings |     PUT       | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/admin-cluster-update-settings.html  |
 | hot_threads          |     GET       | /_nodes/{nodeId}/hot_threads               |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-hot-threads.html|
 | multi_search         |     GET       | /{index}/{type}/_msearch                   |http://www.elasticsearch.org/guide/reference/api/multi-search.html                   |
-|flush                 |     GET       | /{index}/_flush                            |http://www.elasticsearch.org/guide/reference/api/admin-indices-flush.html            |
+| flush                |     GET       | /{index}/_flush                            |http://www.elasticsearch.org/guide/reference/api/admin-indices-flush.html            |
+| index_stats          |     GET       | /{index}/_stats/{stat}/{option}/{type}     |http://www.elasticsearch.org/guide/reference/api/admin-indices-stats.html            |
+| index_stats_options  |     GET       | /{index}/_stats/{stat}/{option}/{type}?xxx |http://www.elasticsearch.org/guide/reference/api/admin-indices-stats.html            |
 
 
 
@@ -86,17 +88,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      GET      | /_search/scroll/{scroll_id}                |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_segments                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_settings                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_stats                                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_stats/flush                              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_stats/get                                |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_stats/indexing                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_stats/indexing/{indexingTypes1}          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_stats/merge                              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_stats/refresh                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_stats/search                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_stats/search/{searchGroupsStats1}        |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_stats/store                              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_stats/warmer                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_template/{name}                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_validate/query                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_aliases                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
@@ -107,18 +98,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      GET      | /{index}/_refresh                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_segments                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_settings                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_stats                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_stats/docs                       |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_stats/flush                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_stats/get                        |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_stats/indexing                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_stats/indexing/{indexingTypes2}  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_stats/merge                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_stats/refresh                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_stats/search                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_stats/search/{searchGroupsStats2}|http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_stats/store                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_stats/warmer                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_validate/query                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_warmer                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_warmer/{name}                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
@@ -129,7 +108,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      GET      | /{index}/{type}/{id}                       |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/{type}/{id}/_explain              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/{type}/{id}/_mlt                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | _stats/docs                                |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      HEAD     | /                                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      HEAD     | /{index}                                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      HEAD     | /{index}/{type}                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
