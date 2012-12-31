@@ -156,6 +156,13 @@
                "index"
            ]
        },
+       "index_put_settings" : {
+           "path" : "/:index/_settings",
+           "method" : "PUT",
+           "optional_params" : [
+               "index"
+           ]
+       },
        "index_stats" : {
            "path" : "/:index/_stats/:stat/:option/:type",
            "method" : "GET",

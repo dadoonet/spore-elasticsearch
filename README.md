@@ -47,6 +47,7 @@ Available APIs
 | index_stats          |     GET       | /{index}/_stats/{stat}/{option}/{type}     |http://www.elasticsearch.org/guide/reference/api/admin-indices-stats.html            |
 | index_stats_options  |     GET       | /{index}/_stats/{stat}/{option}/{type}?xxx |http://www.elasticsearch.org/guide/reference/api/admin-indices-stats.html            |
 | index_settings       |     GET       | /{index}/_settings                         |http://www.elasticsearch.org/guide/reference/api/admin-indices-get-settings.html     |
+| index_put_settings   |     PUT       | /{index}/_settings                         |http://www.elasticsearch.org/guide/reference/api/admin-indices-update-settings.html  |
 
 
 
@@ -140,10 +141,8 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      POST     | /{index}/{type}/{id}/_mlt                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/{type}/{id}/_update               |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      PUT      | /_bulk                                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      PUT      | /_settings                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      PUT      | /_template/{name}                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      PUT      | /{index}/_bulk                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      PUT      | /{index}/_settings                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      PUT      | /{index}/_warmer/{name}                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      PUT      | /{index}/{type}/_bulk                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      PUT      | /{index}/{type}/_warmer/{name}             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
