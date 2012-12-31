@@ -529,13 +529,28 @@ public class ElasticsearchTest {
     }
 
     @Test
+    public void test_index_settings() throws SporeException, IOException {
+        // We inject some beans
+        test_index();
+        node.client().admin().indices().prepareRefresh(_index).execute().actionGet();
+
+        SporeResult<JsonNode> result = spore.call("index_settings");
+        assertNotNull(result.body.get(_index).get("settings"));
+
+        result = spore.call("index_settings", new ImmutableMap.Builder<String, String>()
+                .put("index", _index)
+                .build());
+        assertNotNull(result.body.get(_index).get("settings"));
+    }
+
+    @Test
     public void test_index_stats() throws SporeException, IOException {
         // We inject some beans
         test_index();
         node.client().admin().indices().prepareRefresh(_index).execute().actionGet();
 
         SporeResult<JsonNode> result = spore.call("index_stats");
-        assertEquals(2, result.body.get("_all").get("primaries").get("docs").get("count").asInt());
+        assertEquals(2, result.body.get(_index).get("settings").get("docs").get("count").asInt());
 
         result = spore.call("index_stats", new ImmutableMap.Builder<String, String>()
                 .put("index", _index)

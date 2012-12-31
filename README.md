@@ -46,6 +46,7 @@ Available APIs
 | flush                |     GET       | /{index}/_flush                            |http://www.elasticsearch.org/guide/reference/api/admin-indices-flush.html            |
 | index_stats          |     GET       | /{index}/_stats/{stat}/{option}/{type}     |http://www.elasticsearch.org/guide/reference/api/admin-indices-stats.html            |
 | index_stats_options  |     GET       | /{index}/_stats/{stat}/{option}/{type}?xxx |http://www.elasticsearch.org/guide/reference/api/admin-indices-stats.html            |
+| index_settings       |     GET       | /{index}/_settings                         |http://www.elasticsearch.org/guide/reference/api/admin-indices-get-settings.html     |
 
 
 
@@ -79,7 +80,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      GET      | /_search/scroll                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_search/scroll/{scroll_id}                |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_segments                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_settings                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_template/{name}                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_validate/query                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_aliases                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
@@ -89,7 +89,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      GET      | /{index}/_optimize                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_refresh                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_segments                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_settings                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_validate/query                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_warmer                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_warmer/{name}                    |http://www.elasticsearch.org/guide/reference/api/xxx                               |

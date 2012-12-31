@@ -149,6 +149,13 @@
             "path" : "/_cluster/settings",
             "method" : "PUT"
         },
+       "index_settings" : {
+           "path" : "/:index/_settings",
+           "method" : "GET",
+           "optional_params" : [
+               "index"
+           ]
+       },
        "index_stats" : {
            "path" : "/:index/_stats/:stat/:option/:type",
            "method" : "GET",
