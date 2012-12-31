@@ -454,15 +454,27 @@ public class ElasticsearchTest {
         assertNotNull(result.body.get("transient").asText());
     }
 
-    @Test // TODO Fix it, although it works in CURL
-    // curl -XPUT http://localhost:9200/_cluster/settings -d '{"transient":{"indices.ttl.interval":"60s"}}'
-    // curl http://localhost:9200/_cluster/settings
-    // {"persistent":{},"transient":{"indices.ttl.interval":"60s"}}
+    @Test
+    // TODO Wait for JSpore Release see PR : https://github.com/nicoo/jspore/pull/2
     public void test_put_cluster_settings() throws SporeException, IOException {
     	SporeResult<String> result = sporeString.call("put_cluster_settings", "{\"transient\":{\"indices.ttl.interval\":\"60s\"}}");
         assertTrue(result.body.equals(""));
-    }  
-    
+    }
+
+    @Test
+    public void test_flush() throws SporeException, IOException {
+        // Index some docs
+        test_index();
+
+        SporeResult<JsonNode> result = spore.call("flush");
+        assertTrue(result.body.get("ok").asBoolean());
+
+        result = spore.call("flush", new ImmutableMap.Builder<String, String>()
+                .put("index", _index)
+                .build());
+        assertTrue(result.body.get("ok").asBoolean());
+    }
+
     private void waitForCluster() {
     	// TODO : change that : We wait for 500 ms
     	try {

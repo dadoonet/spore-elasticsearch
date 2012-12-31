@@ -140,6 +140,13 @@
         "put_cluster_settings" : {
             "path" : "/_cluster/settings",
             "method" : "PUT"
+        },
+       "flush" : {
+           "path" : "/:index/_flush",
+           "method" : "GET",
+           "optional_params" : [
+               "index"
+           ]
 		}
    },
    "expected_status" : [ 200, 201 ],
