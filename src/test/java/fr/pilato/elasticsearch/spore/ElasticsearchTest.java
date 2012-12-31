@@ -415,6 +415,59 @@ public class ElasticsearchTest {
 
     }
 
+    @Test
+    public void test_nodes_info() throws SporeException, IOException {
+        SporeResult<JsonNode> result = spore.call("nodes_info");
+        assertNotNull(result.body.get("nodes"));
+
+        result = spore.call("nodes_info", new ImmutableMap.Builder<String, String>()
+                .put("nodes", "_all")
+                .build());
+        assertNotNull(result.body.get("nodes"));
+
+        result = spore.call("nodes_info", new ImmutableMap.Builder<String, String>()
+                .put("nodes", "_all")
+                .put("info", "http")
+                .build());
+        assertNotNull(result.body.get("nodes").elements().next().get("http"));
+
+        result = spore.call("nodes_info", new ImmutableMap.Builder<String, String>()
+                .put("info", "jvm")
+                .build());
+        assertNotNull(result.body.get("nodes").elements().next().get("jvm"));
+
+        result = spore.call("nodes_info", new ImmutableMap.Builder<String, String>()
+                .put("info", "network")
+                .build());
+        assertNotNull(result.body.get("nodes").elements().next().get("network"));
+
+        result = spore.call("nodes_info", new ImmutableMap.Builder<String, String>()
+                .put("info", "os")
+                .build());
+        assertNotNull(result.body.get("nodes").elements().next().get("os"));
+
+        result = spore.call("nodes_info", new ImmutableMap.Builder<String, String>()
+                .put("info", "process")
+                .build());
+        assertNotNull(result.body.get("nodes").elements().next().get("process"));
+
+        result = spore.call("nodes_info", new ImmutableMap.Builder<String, String>()
+                .put("info", "settings")
+                .build());
+        assertNotNull(result.body.get("nodes").elements().next().get("settings"));
+
+        result = spore.call("nodes_info", new ImmutableMap.Builder<String, String>()
+                .put("info", "thread_pool")
+                .build());
+        assertNotNull(result.body.get("nodes").elements().next().get("thread_pool"));
+
+        result = spore.call("nodes_info", new ImmutableMap.Builder<String, String>()
+                .put("info", "transport")
+                .build());
+        assertNotNull(result.body.get("nodes").elements().next().get("transport"));
+
+    }
+
     /**
      * For this test, we get back a String and not a valid JSon.
      * <br/>We only expect not to have any exception

@@ -115,6 +115,14 @@
                "stat"
             ]
         },
+       "nodes_info" : {
+           "path" : "/_nodes/:nodes/:info",
+           "method" : "GET",
+           "optional_params" : [
+               "nodes",
+               "info"
+           ]
+       },
         "hot_threads" : {
             "path" : "/_nodes/:nodes/hot_threads",
             "method" : "GET",

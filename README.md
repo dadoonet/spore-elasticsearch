@@ -36,6 +36,7 @@ Available APIs
 | status               |     GET       | /{index}/_status                           |http://www.elasticsearch.org/guide/reference/api/admin-indices-status.html           |
 | shutdown             |     POST      | /_cluster/nodes/{nodes}/_shutdown          |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-shutdown.html   |
 | nodes_stats          |     GET       | /_nodes/{nodeId}/stats/{stats}             |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-stats.html      |
+| nodes_info           |     GET       | /_nodes/{nodeId}/{info}                    |http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-info.html       |
 | cluster_state        |     GET       | /_cluster/state                            |http://www.elasticsearch.org/guide/reference/api/admin-cluster-state.html            |
 | cluster_health       |     GET       | /_cluster/health/{index}                   |http://www.elasticsearch.org/guide/reference/api/admin-cluster-health.html           |
 | cluster_settings     |     GET       | /_cluster/settings                         |http://www.elasticsearch.org/guide/reference/api/admin-cluster-update-settings.html  |
@@ -73,15 +74,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      GET      | /_aliases                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_cache/clear                              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_mget                                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_nodes/{nodeId}                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_nodes/{nodeId}/http                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_nodes/{nodeId}/jvm                       |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_nodes/{nodeId}/network                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_nodes/{nodeId}/os                        |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_nodes/{nodeId}/process                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_nodes/{nodeId}/settings                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_nodes/{nodeId}/thread_pool               |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /_nodes/{nodeId}/transport                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_optimize                                 |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_refresh                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_search/scroll                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
