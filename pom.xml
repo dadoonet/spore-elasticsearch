@@ -34,4 +34,14 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <!-- Waiting for JSpore Release: so we use here a temp mvn repo -->
+    <repositories>
+        <repository>
+            <id>dadoonet-snapshot</id>
+            <url>https://raw.github.com/dadoonet/dadoonet-mvn-repo/master/snapshots/</url>
+            <snapshots></snapshots>
+        </repository>
+
+    </repositories>
 </project>
