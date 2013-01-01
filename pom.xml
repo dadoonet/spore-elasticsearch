@@ -50,12 +50,12 @@
     </build>
 
     <!-- Waiting for JSpore Release: so we use here a temp mvn repo -->
-    <!--repositories>
+    <repositories>
         <repository>
             <id>dadoonet-snapshot</id>
             <url>https://raw.github.com/dadoonet/dadoonet-mvn-repo/master/snapshots/</url>
             <snapshots></snapshots>
         </repository>
 
-    </repositories-->
+    </repositories>
 </project>
