@@ -50,7 +50,6 @@ Available APIs
 | index_put_settings   |     PUT       | /{index}/_settings                         |http://www.elasticsearch.org/guide/reference/api/admin-indices-update-settings.html  |
 
 
-
 TODO
 ----
 
@@ -84,7 +83,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      GET      | /_template/{name}                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /_validate/query                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_aliases                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      GET      | /{index}/_analyze                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_cache/clear                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_mget                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      GET      | /{index}/_optimize                         |http://www.elasticsearch.org/guide/reference/api/xxx                               |
@@ -105,7 +103,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      HEAD     | /{index}/{type}                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      HEAD     | /{index}/{type}/{id}                       |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /_aliases                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      POST     | /_analyze                                  |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /_bulk                                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /_cache/clear                              |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /_cluster/nodes/_restart                   |http://www.elasticsearch.org/guide/reference/api/xxx                               |
@@ -120,7 +117,6 @@ Here are the methods that have to be implemented in SPORE:
 |                      |      POST     | /_template/{name}                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /_validate/query                           |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}   SAME AS PUT                     |http://www.elasticsearch.org/guide/reference/api/xxx                               |
-|                      |      POST     | /{index}/_analyze                          |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/_bulk                             |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/_cache/clear                      |http://www.elasticsearch.org/guide/reference/api/xxx                               |
 |                      |      POST     | /{index}/_close                            |http://www.elasticsearch.org/guide/reference/api/xxx                               |
